@@ -13,6 +13,7 @@ describe 'Post Model Tests' do
     post.Title = ''
     expect(post).to_not be_valid
     post.Title = 'Hello'
+    expect(post).to be_valid
   end
 
   it 'comments counter and likes counter should be an integer' do

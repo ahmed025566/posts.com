@@ -11,12 +11,14 @@ RSpec.describe User, type: :model do
     user.Name = ''
     expect(user).to_not be_valid
     user.Name = 'Tom'
+    expect(user).to be_valid
   end
 
   it 'should not be vaild if posts counter recievied none integer value' do
     user.PostsCounter = 'string'
     expect(user).to_not be_valid
     user.PostsCounter = 0
+    expect(user).to be_valid
   end
 
   it 'should not be vaild if the posts couner recvied negative value' do

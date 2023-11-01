@@ -69,5 +69,6 @@ group :test do
   gem 'capybara'
   gem 'selenium-webdriver'
 end
+gem 'rails-controller-testing'
 gem 'rspec-rails'
 gem 'rubocop', '>= 1.0', '< 2.0'

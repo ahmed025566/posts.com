@@ -1,3 +1,26 @@
-<% @posts.each do |post| %>
-  <%= post.Title %>
-<% end %>
+<div class = "userIndex">
+  <div class='userWraper'>
+   <%= image_tag(@user.Photo) %>  
+   <div class='userInner'>
+     <h1 class="name"><%= @user.Name%></h1>
+     <p class='num'>Number of posts: <%= @user.PostsCounter || 0%></p>
+   </div>
+  </div>
+  
+  <% @posts.each do |post|%>
+    <a href="/users/<%= @user.id%>/posts/<%= post.id %>" class="postDetails">
+    <div class= "post">
+     <p class= "title"> <%= post.Title%> </p>
+     <p class="text"> <%= post.Text%> </p>
+     <p class="counters">Comments: <%= post.CommentsCounter || 0%>, Likes: <%= post.LikesCounter || 0%></p>
+    </div>
+    </a>
+    <div class="comments">
+      <% post.recent_comments.each do |comment|%>
+        <p> <%= comment.user.Name%>: <%= comment.Text%></p>
+      <% end %>
+    </div>
+  <% end %>
+</div>
+
+ 

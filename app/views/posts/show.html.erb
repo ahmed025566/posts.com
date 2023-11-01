@@ -1,2 +1,10 @@
-<h1> <%= @post.Title %> </h1>
-<h2> <%= @post.Text %> </h2>
+<div class="PostShow">
+  <h1 clas="showPsotTilte"><%= @post.Title %> by <%= @user.Name%> </h1>
+  <p class="countersShow">Comments: <%= @post.CommentsCounter || 0%>, Likes: <%= @post.LikesCounter || 0%></p>
+  <p class="showPostText"><%= @post.Text %> </p>
+</div>
+<div class="commentsShow">
+  <% @comments.each do |comment| %>
+    <p> <%= comment.user.Name%>: <%= comment.Text%></p>
+  <% end %> 
+</div>

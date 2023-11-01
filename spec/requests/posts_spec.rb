@@ -29,4 +29,21 @@ RSpec.describe 'Posts', type: :request do
       expect(response).to render_template(:index)
     end
   end
+  describe 'Get/show' do
+    before do
+      get "/users/#{user.id}/posts/#{post.id}"
+    end
+
+    it 'should response with status 200' do
+      expect(response).to have_http_status(200)
+    end
+
+    it 'should response with the right template' do
+      expect(response).to render_template(:show)
+    end
+
+    it 'should response with the right data' do
+      expect(response.body).to include(post.Title)
+    end
+  end
 end

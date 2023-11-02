@@ -6,6 +6,9 @@
      <p class='num'>Number of posts: <%= @user.PostsCounter || 0%></p>
    </div>
   </div>
+  <div class="right">
+    <%= link_to "Add a post", new_user_post_path(@user), class: "addPost" %>
+  </div>
   <div class = "bio">
     <p class="bioHead">Bio</p>
     <p> <%= @user.Bio%></p>

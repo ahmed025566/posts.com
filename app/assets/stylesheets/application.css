@@ -159,3 +159,46 @@ a {
   font-size: 22px;
   font-weight: 650;
 }
+
+.right {
+  width: 70%;
+  height: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 22px;
+  font-weight: 600;
+  margin: 30px auto 0 auto;
+  border: 2px solid white;
+  transition: all 1s;
+}
+
+.right:hover {
+  color: #000;
+  background-color: #fff;
+  transition: all 1s;
+}
+
+.interaction {
+  width: 85%;
+  margin: 20px auto -10px auto;
+  padding-left: 10px;
+  display: flex;
+}
+
+.like {
+  width: 100px;
+  height: 30px;
+  font-size: 18px;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.commentNew {
+  width: 150px;
+  margin-right: 15px;
+  font-size: 18px;
+  font-weight: 600;
+  text-align: center;
+  border: 2.5px solid white;
+}

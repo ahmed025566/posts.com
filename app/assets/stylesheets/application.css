@@ -1,15 +1,161 @@
-/*
- * This is a manifest file that'll be compiled into application.css, which will include all the files
- * listed below.
- *
- * Any CSS (and SCSS, if configured) file within this directory, lib/assets/stylesheets, or any plugin's
- * vendor/assets/stylesheets directory can be referenced here using a relative path.
- *
- * You're free to add application-wide styles to this file and they'll appear at the bottom of the
- * compiled file so the styles you add here take precedence over styles defined in any other CSS
- * files in this directory. Styles in this file should be added after the last require_* statement.
- * It is generally better to create a new file per style scope.
- *
- *= require_tree .
- *= require_self
- */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  background-color: #000;
+  color: #fff;
+}
+
+.userIndex {
+  width: 100%;
+  height: 100%;
+  overflow: scroll;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.userWraper {
+  width: 70%;
+  height: 150px;
+  display: flex;
+  justify-content: space-between;
+  margin: 40px auto 0 auto;
+}
+
+img {
+  width: 160px;
+  height: 150px;
+}
+
+.userInner {
+  height: 100%;
+  width: 70%;
+  display: flex;
+  border: 2px solid white;
+}
+
+.name {
+  font-size: 40px;
+  height: 60px;
+  position: relative;
+  top: 21%;
+  left: 10px;
+}
+
+a {
+  color: white;
+  text-decoration: none;
+}
+
+.num {
+  position: absolute;
+  height: 30px;
+  font-size: 19px;
+  font-weight: 600;
+  margin: 100px 10px 0 0;
+  right: 200px;
+}
+
+.postsLink {
+  font-size: 40px;
+  position: relative;
+}
+
+.bio {
+  width: 70%;
+  border: 2px solid #fff;
+  margin-top: 30px;
+  height: 220px;
+  font-size: 20px;
+  font-weight: 650;
+  padding: 10px;
+}
+
+.bioHead {
+  margin-bottom: 10px;
+}
+
+.post {
+  width: 70%;
+  height: 120px;
+  margin-top: 20px;
+  border: 2px solid white;
+  font-weight: 600;
+}
+
+.title {
+  margin: 5px  0 10px 5px;
+}
+
+.text {
+  margin: 0 0 0 5px;
+}
+
+.counters {
+  position: relative;
+  left: 75%;
+  width: 220px;
+}
+
+.seePosts {
+  width: 200px;
+  height: 40px;
+  font-size: 20px;
+  margin: 20px;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.comments {
+  width: 70%;
+  height: 150px;
+  margin-top: 20px;
+  padding: 10px;
+  font-size: 20px;
+  font-weight: 600;
+  border: 2px solid white;
+}
+
+.postDetails {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+
+.PostShow {
+  width: 85%;
+  height: 300px;
+  margin: 40px auto 10px auto;
+  border: 2px solid white;
+  padding: 10px;
+  overflow-y: scroll;
+  overflow-x: hidden;
+}
+
+.countersShow {
+  position: relative;
+  left: 78%;
+  bottom: 15px;
+  font-weight: 650;
+  font-size: 18px;
+}
+
+.showPostText {
+  margin-top: 10px;
+  font-size: 22px;
+  font-weight: 600;
+}
+
+.commentsShow {
+  width: 85%;
+  height: 250px;
+  margin: 40px auto 10px auto;
+  border: 2px solid white;
+  padding: 10px;
+  overflow-y: scroll;
+  overflow-x: hidden;
+  font-size: 22px;
+  font-weight: 650;
+}

@@ -4,6 +4,6 @@ class Comment < ApplicationRecord
   belongs_to :user
 
   def update_comments_counter
-    post.update(CommentsCounter: +1)
+    post.increment!(:CommentsCounter)
   end
 end

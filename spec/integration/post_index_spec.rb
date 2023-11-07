@@ -75,6 +75,5 @@ RSpec.describe 'Post index ', type: :feature do
   it 'should render pagination if number of posts is more than 5' do
     visit user_posts_path(@user)
     expect(page).to_not have_content('← Previous 1 2 Next →')
-    
   end
 end

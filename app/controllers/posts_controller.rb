@@ -1,7 +1,7 @@
 class PostsController < ApplicationController
   def index
     @user = User.find(params[:user_id])
-    @posts = @user.posts.paginate(page: params[:page], per_page: 5)
+    @posts = @user.posts.includes(:comments).paginate(page: params[:page], per_page: 5)
 
     @comments = Comment.all
     @users = User.all
@@ -10,7 +10,7 @@ class PostsController < ApplicationController
   def show
     @users = User.all
     @post = Post.find(params[:id])
-    @comments = @post.comments
+    @comments = @post.includes(:comments)
   end
 
   def new

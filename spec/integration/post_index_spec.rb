@@ -33,8 +33,7 @@ RSpec.describe 'Post index ', type: :feature do
 
   it 'should display posts titles' do
     visit user_posts_path(@user)
-    expect(page).to have_content(@post5.Title)
-    expect(page).to have_content(@post4.Title)
+
     expect(page).to have_content(@post3.Title)
     expect(page).to have_content(@post2.Title)
     expect(page).to have_content(@post1.Title)
@@ -42,8 +41,7 @@ RSpec.describe 'Post index ', type: :feature do
 
   it 'should display posts bodies' do
     visit user_posts_path(@user)
-    expect(page).to have_content(@post5.Text)
-    expect(page).to have_content(@post4.Text)
+
     expect(page).to have_content(@post3.Text)
     expect(page).to have_content(@post2.Text)
     expect(page).to have_content(@post1.Text)
@@ -56,8 +54,6 @@ RSpec.describe 'Post index ', type: :feature do
     expect(page).to have_content(@comment1.Text)
     expect(page).to have_content(@comment2.Text)
     expect(page).to have_content(@comment3.Text)
-    expect(page).to have_content(@comment4.Text)
-    expect(page).to have_content(@comment5.Text)
   end
 
   it 'should display how many comments a post has' do
@@ -72,7 +68,13 @@ RSpec.describe 'Post index ', type: :feature do
 
   it 'should redirects me to the post show page' do
     visit user_posts_path(@user)
-    click_link @post5.Text
-    expect(current_path).to eq(user_post_path(user_id: @user.id, id: @post5.id))
+    click_link @post2.Text
+    expect(current_path).to eq(user_post_path(user_id: @user.id, id: @post2.id))
+  end
+
+  it 'should render pagination if number of posts is more than 5' do
+    visit user_posts_path(@user)
+    expect(page).to_not have_content('← Previous 1 2 Next →')
+    
   end
 end

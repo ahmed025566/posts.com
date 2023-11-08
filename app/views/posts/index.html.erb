@@ -1,6 +1,6 @@
 <div class = "userIndex">
   <div class='userWraper'>
-   <%= image_tag(@user.Photo) %>  
+  <img src= <%= @user.Photo %> alt= "User" />   
    <div class='userInner'>
      <h1 class="name"><%= @user.Name%></h1>
      <p class='num'>Number of posts: <%= @user.PostsCounter || 0%></p>
@@ -14,26 +14,23 @@
      <p class="text"> <%= post.Text%> </p>
      <p class="counters">Comments: <%= post.CommentsCounter || 0%>, Likes: <%= post.LikesCounter || 0%></p>
     </div>
-    </a>  
+    </a>
     <div class="comments">
-      <% counter = 0 %>
-      <% @comments.each do |comment|%>
-        <% if counter < 5%>
-          <% if comment.post_id == post.id%>
-            <p>
-              <% @users.each do |user|%>
-                <% if user.id == comment.user_id %>
-                  <%= user.Name %>:  <%= comment.Text%>
-                <% end %>
-              <% end %>
-            </p>
-           <% counter += 1 %>
-          <% end %> 
+    <% @comments.each do |comment|%>
+      <% if comment.post_id == post.id%>
+        <p>
+        <% @users.each do |user|%>
+          <% if user.id == comment.user_id %>
+            <%= user.Name %>:  <%= comment.Text%>
+          <% end %>
         <% end %>
+        </p>
+      <% end %> 
       <% end %>
     </div>
   <% end %>
 </div>
+
 
 <div class="digg_pagination">
   <%= will_paginate @posts %> 

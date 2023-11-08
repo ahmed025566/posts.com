@@ -10,7 +10,7 @@
 <% end %>
 </div>
 <div class="commentsShow">
-  <% @comments.each do |comment| %>
+  <% @comments.includes([:user]).each do |comment| %>
     <p>
       <% @users.each do |user|%>
         <% if user.id == comment.user_id %>
@@ -18,5 +18,5 @@
         <% end %>
       <% end %>
     </p>
-  <% end %>
+  <% end %> 
 </div>

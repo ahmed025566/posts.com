@@ -1,14 +1,12 @@
 <div class = "userIndex">
   <div class='userWraper'>
-   <%= image_tag(@user.Photo) %>  
+  <img src= <%= @user.Photo %> alt= "User" />   
    <div class='userInner'>
      <h1 class="name"><%= @user.Name%></h1>
      <p class='num'>Number of posts: <%= @user.PostsCounter || 0%></p>
    </div>
   </div>
-  <div class="right">
-    <%= link_to "Add a post", new_user_post_path(@user), class: "addPost" %>
-  </div>
+  <%= link_to "Add a post", new_user_post_path(@user), class: "addPost"  %>
   <div class = "bio">
     <p class="bioHead">Bio</p>
     <p> <%= @user.Bio%></p>

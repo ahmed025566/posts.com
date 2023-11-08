@@ -1,7 +1,7 @@
 <div class = "userIndex">
   <% @users.each do |user| %>
     <a href="users/<%=user.id%>"><div class='userWraper'>
-      <%= image_tag(user.Photo) %>  
+      <img src="#{user.Photo}" alt="User" />
       <div class='userInner'>
         <h1 class="name"><%= link_to user.Name, user_path(user)%></h1>
         <p class='num'>Number of posts: <%= user.PostsCounter || 0%></p>

@@ -16,13 +16,19 @@
 
   <% @posts.each do |post|%>
     <div class= "post">
-     <p class= "title"> <%= post.Title%> </p>
-     <p class="text"> <%= post.Text%> </p>
-     <p class="counters">Comments: <%= post.CommentsCounter || 0%>, Likes: <%= post.LikesCounter || 0%></p>
+    <a href="<%= @user.id%>/posts/<%= post.id%>">
+      <p class="title"> <%= post.Title%></p>
+      <p class="text"> <%= post.Text%> </p>
+      <p class="counters">Comments: <%= post.CommentsCounter || 0%>, Likes: <%= post.LikesCounter || 0%></p>
+    </a>
     </div>
   <% end %>
  
- <a href="/users/<%=@user.id%>/posts"> <button class="seePosts">See all posts</button> </a>
+  <button class="seePosts">
+    <a href="/users/<%=@user.id%>/posts"> 
+     See all posts
+    </a>
+  </button>
  
  </div>
 

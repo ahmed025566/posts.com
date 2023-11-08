@@ -1,5 +1,5 @@
 <div class="PostShow">
-  <h1 clas="showPsotTilte"><%= @post.Title %> by <%= @user.Name%> </h1>
+  <h1 clas="showPsotTilte"><%= @post.Title %> by <%= @post.author.Name%> </h1>
   <p class="countersShow">Comments: <%= @post.CommentsCounter || 0%>, Likes: <%= @post.LikesCounter || 0%></p>
   <p class="showPostText"><%= @post.Text %> </p>
 </div>
@@ -11,6 +11,12 @@
 </div>
 <div class="commentsShow">
   <% @comments.each do |comment| %>
-    <p> <%= comment.user.Name%>: <%= comment.Text%></p>
-  <% end %> 
+    <p>
+      <% @users.each do |user|%>
+        <% if user.id == comment.user_id %>
+          <%= user.Name %>:  <%= comment.Text%>
+        <% end %>
+      <% end %>
+    </p>
+  <% end %>
 </div>

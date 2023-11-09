@@ -407,3 +407,23 @@ input {
 *:first-child + html .digg_pagination {
   overflow: hidden;
 }
+
+.addPost {
+  width: 70%;
+  height: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 22px;
+  font-weight: 600;
+  margin: 30px auto 0 auto;
+  border: 2px solid white;
+  border-radius: 5px;
+  transition: all 1s;
+}
+
+.addPost:hover {
+  color: #000;
+  background-color: #fff;
+  transition: all 1s;
+}

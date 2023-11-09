@@ -18,6 +18,10 @@
       <% @users.each do |user|%>
         <% if user.id == comment.user_id %>
           <%= user.Name %>:  <%= comment.Text%>
+          <% if can? :destroy, comment %>
+          <%= link_to "Delete Comment" , "/users/#{@post.author_id}/posts/#{@post.id}/comments/#{comment.id}", 
+          'data-turbo-method': :delete, class:('deleteComment') %>
+          <% end %>
         <% end %>
       <% end %>
     </p>

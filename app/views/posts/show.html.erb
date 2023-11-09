@@ -1,4 +1,7 @@
 <div class="PostShow">
+  <% if can? :destroy, @post %>
+    <%= link_to "Remove", "/users/#{@post.author_id}/posts/#{@post.id}", 'data-turbo-method': :delete, class:('delete') %>
+  <% end %>
   <h1 clas="showPsotTilte"><%= @post.Title %> by <%= @post.author.Name%> </h1>
   <p class="countersShow">Comments: <%= @post.CommentsCounter || 0%>, Likes: <%= @post.LikesCounter || 0%></p>
   <p class="showPostText"><%= @post.Text %> </p>
@@ -8,13 +11,10 @@
 <%= form_with model: @like, url: user_post_likes_path(post_id: @post.id) do |form| %>
   <%= form.submit "Like", class: "like" %>
 <% end %>
-<% if can? :destroy, @post %>
-<%= link_to "Remove", "/users/#{@post.author_id}/posts/#{@post.id}", 'data-turbo-method': :delete %>
-<% end %>
 </div>
 <div class="commentsShow">
   <% @comments.includes([:user]).each do |comment| %>
-    <p>
+    <p class="comment">
       <% @users.each do |user|%>
         <% if user.id == comment.user_id %>
           <%= user.Name %>:  <%= comment.Text%>

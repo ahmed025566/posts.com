@@ -426,10 +426,3 @@ input {
   background-color: #fff;
   transition: all 1s;
 }
-
-.delete {
-  position: relative;
-  left: 90%;
-   font-size: 22px; 
-  border: 2px solid white;
-}

@@ -174,8 +174,6 @@ a {
   font-weight: 650;
 }
 
-
-
 .interaction {
   width: 85%;
   margin: 20px auto -10px auto;
@@ -332,6 +330,7 @@ input {
   border: 2px solid white;
   border-radius: 5px;
 }
+
 .digg_pagination {
   background: black;
   display: flex;

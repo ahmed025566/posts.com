@@ -8,6 +8,9 @@
 <%= form_with model: @like, url: user_post_likes_path(post_id: @post.id) do |form| %>
   <%= form.submit "Like", class: "like" %>
 <% end %>
+<% if can? :destroy, @post %>
+<%= link_to "Remove", "/users/#{@post.author_id}/posts/#{@post.id}", 'data-turbo-method': :delete %>
+<% end %>
 </div>
 <div class="commentsShow">
   <% @comments.includes([:user]).each do |comment| %>

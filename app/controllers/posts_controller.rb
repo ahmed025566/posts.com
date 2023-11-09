@@ -1,4 +1,5 @@
 class PostsController < ApplicationController
+  load_and_authorize_resource
   def index
     @user = User.find(params[:user_id])
     @posts = @user.posts.includes(:comments).paginate(page: params[:page], per_page: 5)
@@ -25,6 +26,13 @@ class PostsController < ApplicationController
     else
       render :new, status: :unprocessable_entity
     end
+  end
+
+  def destroy
+    @post = Post.find(params[:id])
+    return unless @post.destroy
+
+    redirect_to user_posts_path(current_user)
   end
 
   def post_params

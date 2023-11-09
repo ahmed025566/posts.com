@@ -76,3 +76,4 @@ gem 'rubocop', '>= 1.0', '< 2.0'
 
 gem 'devise'
 gem 'will_paginate', '~> 4.0'
+gem 'cancancan'

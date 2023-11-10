@@ -28,11 +28,22 @@ class PostsController < ApplicationController
 
   def create
     @post = current_user.posts.new(post_params)
+    respond_to do |_format|
+      f.html do
+        if @post.save
+          redirect_to user_posts_path(current_user), notice: 'Post was successfully created.'
+        else
+          render :new, status: :unprocessable_entity
+        end
+      end
+      f.json do
+        @post = Post.new(author: User.find(params[:author_id]), **post_params)
+        render json: { message: 'post created successfully' }, status: 201 if @post.save
 
-    if @post.save
-      redirect_to user_posts_path(current_user), notice: 'Post was successfully created.'
-    else
-      render :new, status: :unprocessable_entity
+        render json: @post.errors, status: 401 unless @post.save
+      rescue ActiveRecord::RecordNotFound
+        render json: { message: 'Invalid data or user id' }, status: 422
+      end
     end
   end
 

@@ -30,6 +30,8 @@ class PostsController < ApplicationController
 
   def destroy
     @post = Post.find(params[:id])
+    @post.author.PostsCounter -= 1
+    @post.author.save
     return unless @post.destroy
 
     redirect_to user_posts_path(current_user)
